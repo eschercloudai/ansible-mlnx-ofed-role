@@ -1,0 +1,10 @@
+- name: add mlnx_ofed_repo
+  ansible.builtin.get_url:
+    url: http://linux.mellanox.com/public/repo/mlnx_ofed/latest-23.04/rhel8.8/mellanox_mlnx_ofed.repo
+    dest: /etc/yum.repos.d/mellanox.repo
+    mode: '0440'
+
+- name: install "{{ mellanox_package }}" packages
+  ansible.builtin.package:
+    name: "{{ mellanox_package | default(os_defaults['mellanox_package'])}}"
+    state: present

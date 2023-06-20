@@ -1,0 +1,2 @@
+mlnx_ofed_version: "23.04"
+mellanox_package: "mlnx-ofed-all"
